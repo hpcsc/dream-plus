@@ -2,11 +2,12 @@
 var prevBgIndex = 0;
 var bodyBgSwitchIndex = 0;
 
-{{ $colorBG := $.Site.Params.background.colorBG }}
+{{ $bgColor := $.Site.Params.background.bgColor }}
+{{ $randomizeBgColor := $.Site.Params.background.randomizeBgColor }}
 {{ $bgList := $.Site.Params.background.bgList }}
 {{ $bgBlur := $.Site.Params.background.bgBlur }}
 
-{{ with $colorBG }}
+{{ if $randomizeBgColor }}
 	var gradients = [
 	  [],
 	  ['#40e0d0', '#ff8c00', '#ff0080'], // Wedding Day Blues
@@ -18,7 +19,12 @@ var bodyBgSwitchIndex = 0;
 	  ['#c94b4b', '#4b134f'], // Bighead
 	  ['#23074d', '#cc5333'] // Taran Tado
 	];
-	document.body.style.setProperty('--colorBG', connect(gradients[getRandomInt(0, gradients.length)]));
+
+	var randomBgColor = gradients[getRandomInt(0, gradients.length)].join(", ");
+	var backgroundProperty = 'linear-gradient(to right, ' + randomBgColor + ')';
+	document.body.style.setProperty('--background', backgroundProperty);
+{{ else if $bgColor }}
+	document.body.style.setProperty('--background', {{ $bgColor }});
 {{ else }}
 	{{ if gt (len $bgList) 1 }}
 		var images = {{ $bgList }};
@@ -46,21 +52,9 @@ var bodyBgSwitchIndex = 0;
 	  }
 	  return random;
 	}
-
-	function connect(arr) {
-	  var str = '';
-	  for (var i = 0; i < arr.length; i++) {
-	    if (i !== arr.length - 1) {
-	      str += arr[i] + ', ';
-	    } else {
-	      str += arr[i];
-	    }
-	  }
-	  return str;
-	}
 </script>
 
 {{/*Create blur effect*/}}
-{{ if not $colorBG }}
+{{ if $bgBlur }}
 	<div class="blur-overlay"></div>
 {{ end }}
