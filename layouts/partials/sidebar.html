@@ -1,52 +1,40 @@
-<div id="sidebar" class="ui sidebar inverted vertical menu">
+<div id="sidebar" class="ui labeled icon thin sidebar inverted vertical menu">
 	{{/*Home button*/}}
-	<div class="item">
-		<a href="/">
-			<i class="inverted big link home icon" title="{{ i18n `home` }}"></i>
-			{{ i18n `home` }}
-		</a>
-	</div>
+	<a class="item" href="/" >
+		<i class="inverted big link home icon" title="{{ i18n `home` }}"></i>
+		{{ i18n `home` }}
+	</a>
 
 	{{/*About Me button*/}}
-	<div class="item">
-		<a href="/about">
-			<i class="inverted big link address card icon" title="{{ i18n `flip` }}"></i>
-			{{ i18n `flip` }}
-		</a>
-	</div>
+	<a class="item" href="/about">
+		<i class="inverted big link address card icon" title="{{ i18n `flip` }}"></i>
+		{{ i18n `flip` }}
+	</a>
 
 	{{/*Archive section button*/}}
-	<div class="item">
-		<a href="/posts">
-			<i class="inverted big link archive icon" title="{{ i18n `archive` }}"></i>
-			{{ i18n `archive` }}
-		</a>
-	</div>
+	<a class="item" href="/posts">
+		<i class="inverted big link archive icon" title="{{ i18n `archive` }}"></i>
+		{{ i18n `archive` }}
+	</a>
 
 	{{/*Tags section button*/}}
 	{{ if .Site.Params.tags.enabled }}
-		<div class="item">
-			<a href="/tags">
-				<i class="inverted big link tags icon" title="{{ i18n `tag` 1 }}"></i>
-				{{ i18n `tag` 1 }}
-			</a>
-		</div>
+	<a class="item" href="/tags">
+		<i class="inverted big link tags icon" title="{{ i18n `tag` 1 }}"></i>
+		{{ i18n `tag` 1 }}
+	</a>
 	{{ end }}
 
 	{{/*Categories section button*/}}
 	{{ if .Site.Params.categories.enabled }}
-		<div class="item">
-			<a href="/categories">
-				<i class="inverted big link cubes icon" title="{{ i18n `category` 1 }}"></i>
-				{{ i18n `category` 1 }}
-			</a>
-    	</div>
+	<a class="item" href="/categories">
+		<i class="inverted big link cubes icon" title="{{ i18n `category` 1 }}"></i>
+		{{ i18n `category` 1 }}
+	</a>
 	{{ end }}
 
-	<div class="item">
-		<a href="/posts/index.xml">
-			<i class="inverted big link rss icon" title="{{ i18n `rssFeed` }}"></i>
-			{{ i18n `rssFeed` }}
-		</a>
-	</div>
+	<a class="item" href="/posts/index.xml">
+		<i class="inverted big link rss icon" title="{{ i18n `rssFeed` }}"></i>
+		{{ i18n `rssFeed` }}
+	</a>
 </div>
