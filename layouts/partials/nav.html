@@ -6,29 +6,26 @@
 		</a>
 	</div>
 
-	{{/*Archive section button*/}}
-	<div class="item">
-		<a href="/{{ .contentType }}">
-			<i class="inverted big link archive icon" title="{{ i18n `archive` }}"></i>
-		</a>
-	</div>
-
-	{{/*Tags section button*/}}
-	{{ if .context.Site.Params.tags.enabled }}
-		<div class="item">
-			<a href="/tags">
-				<i class="inverted big link tags icon" title="{{ i18n `tag` 1 }}"></i>
-			</a>
-		</div>
+	{{ $scratch := newScratch }}
+	{{ range $index, $val := $.context.Site.Social }}
+		{{ $scratch.Set $index $val }}
 	{{ end }}
 
-	{{/*Categories section button*/}}
-	{{ if .context.Site.Params.categories.enabled }}
-		<div class="item">
-			<a href="/categories">
-				<i class="inverted big link cubes icon" title="{{ i18n `category` 1 }}"></i>
-			</a>
-    	</div>
+	{{/*slices to loop over*/}}
+	{{ $sites := slice "GitHub" "Email" "Twitter" "YouTube" "Medium" "LinkedIn" "Stack Overflow" "CodePen" "Reddit" }}
+	{{ $links := slice "https://github.com/" "mailto:" "https://twitter.com/" "https://youtube.com/user/" "https://medium.com/@" "https://www.linkedin.com/in/" "https://www.stackoverflow.com/users/" "https://codepen.io/" "https://reddit.com/user/" }}
+	{{ $icons := slice "github" "mail" "twitter" "youtube play" "medium" "linkedin" "stack overflow" "codepen" "reddit" }}
+
+	{{/*Generate HTML for each site*/}}
+	{{ range $index, $val := $sites }}
+		{{ $var := replace $val " " "" | lower }}
+		{{ with ($scratch.Get $var) }}
+			<div class="item">
+				<a href="{{ index $links $index }}{{ $scratch.Get $var }}" {{ if ne $var "mail" }}target="	_blank"{{ end }}>
+					<i id="ico" class="inverted big link {{ index $icons $index }} icon" title="{{ $val }}"></i>
+				</a>
+			</div>
+		{{ end }}
 	{{ end }}
 
 	{{/*Navigation buttons*/}}
@@ -54,21 +51,12 @@
 		</div>
 	{{ end }}
 
-	{{/*Sidebar button*/}}
-	{{ if .context.IsPage }}
-		<div class="ui container tablet computer only grid">
-			<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
-				<i class="inverted big link sidebar icon" title="{{ i18n `showSidebar` }}"></i>
-			</div>
-		</div>
-	{{ end }}
-
 	{{/*RSS button*/}}
 	{{ if and (eq .contentType "posts") .rssButton }}
 		<div class="item right">
-			<a href="/posts/index.xml">
-				<i class="inverted big link rss icon" title="{{ i18n `rssFeed` }}"></i>
-			</a>
+			<i class="inverted big link sidebar icon"
+			   onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');"
+			   title="{{ i18n `showSidebar` }}"></i>
 		</div>
 	{{ end }}
 </nav>

@@ -1,30 +1,52 @@
 <div id="sidebar" class="ui sidebar inverted vertical menu">
-	{{/*Author*/}}
-	<section id="author" class="ui top attached center aligned inverted segment">
-		{{ partial "author.html" . }}
-	</section>
+	{{/*Home button*/}}
+	<div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="{{ i18n `home` }}"></i>
+			{{ i18n `home` }}
+		</a>
+	</div>
 
-	{{/*Tags*/}}
-	{{ if and $.Site.Params.tags.enabled $.Site.Taxonomies.tags }}
-		<section class="ui attached center aligned inverted segment sidebar-dream-tags">
-			{{/*Call 'tags' partial and pass parameters*/}}
-			{{ $limit := $.Site.Params.tags.tagLimit | default 8 }}
-			{{ $args := dict "context" . "isPost" false "tags" $.Site.Taxonomies.tags "limit" $limit }}
-			{{ partial "tags.html" $args }}
-		</section>
+	{{/*About Me button*/}}
+	<div class="item">
+		<a href="/about">
+			<i class="inverted big link address card icon" title="{{ i18n `flip` }}"></i>
+			{{ i18n `flip` }}
+		</a>
+	</div>
+
+	{{/*Archive section button*/}}
+	<div class="item">
+		<a href="/posts">
+			<i class="inverted big link archive icon" title="{{ i18n `archive` }}"></i>
+			{{ i18n `archive` }}
+		</a>
+	</div>
+
+	{{/*Tags section button*/}}
+	{{ if .Site.Params.tags.enabled }}
+		<div class="item">
+			<a href="/tags">
+				<i class="inverted big link tags icon" title="{{ i18n `tag` 1 }}"></i>
+				{{ i18n `tag` 1 }}
+			</a>
+		</div>
 	{{ end }}
 
-	{{/*Categories*/}}
-	{{ if and $.Site.Params.categories.enabled $.Site.Taxonomies.categories }}
-		<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
-			<div class="ui inverted accordion">
-				{{ partial "categories.html" . }}
-			</div>
-		</section>
+	{{/*Categories section button*/}}
+	{{ if .Site.Params.categories.enabled }}
+		<div class="item">
+			<a href="/categories">
+				<i class="inverted big link cubes icon" title="{{ i18n `category` 1 }}"></i>
+				{{ i18n `category` 1 }}
+			</a>
+    	</div>
 	{{ end }}
 
-	{{/*Footer*/}}
-	<section id="footer" class="ui bottom attached center aligned inverted segment">
-		{{ partial "footer.html" . }}
-	</section>
+	<div class="item">
+		<a href="/posts/index.xml">
+			<i class="inverted big link rss icon" title="{{ i18n `rssFeed` }}"></i>
+			{{ i18n `rssFeed` }}
+		</a>
+	</div>
 </div>
