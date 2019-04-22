@@ -1,6 +1,6 @@
 <nav class="ui top secondary menu bar">
 	{{/*Home button*/}}
-	<div class="item">
+	<div class="item left-most">
 		<a href="/">
 			<i class="inverted big link home icon" title="{{ i18n `home` }}"></i>
 		</a>
@@ -53,7 +53,7 @@
 
 	{{/*RSS button*/}}
 	{{ if and (eq .contentType "posts") .rssButton }}
-		<div class="item right">
+		<div class="item right right-most">
 			<i class="inverted big link sidebar icon"
 			   onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');"
 			   title="{{ i18n `showSidebar` }}"></i>

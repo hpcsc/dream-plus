@@ -285,6 +285,14 @@ ul > li {
   text-align: center;
 }
 /*Top nav bar*/
+.top .left-most {
+  margin-left: calc(100vw/30) !important;
+}
+
+.top .right-most {
+  margin-right: calc(100vw/30) !important;
+}
+
 .top.bar {
   background-color: #00000066 !important;
   overflow-y: hidden;
