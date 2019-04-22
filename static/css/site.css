@@ -198,6 +198,11 @@ li:not('.toc') {
   flex-wrap: wrap;
 }
 
+.post-list .nav-arrows {
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .glass {
   position: absolute;
   overflow: hidden;

@@ -17,6 +17,29 @@
 				{{ range .Paginator.Pages }}
 					{{ .Render "card" }}
 				{{ end }}
+
+			</div>
+			<div class="nav-arrows row box" >
+				{{/*Navigation buttons*/}}
+				{{ $paginator := .Paginate (where .Data.Pages "Section" $contentType) }}
+				<div class="item">
+					{{ if .Paginator.HasPrev }}
+						<a href="{{ $paginator.Prev.URL }}">
+							<i class="inverted big link chevron circle left icon" title="{{ i18n `prevPage` }}"></i>
+						</a>
+					{{ else if .Paginator.HasNext }}
+						<i class="disabled inverted big chevron circle left icon" title="{{ i18n `prevPage` }}"></i>
+					{{ end }}
+				</div>
+				<div class="item">
+					{{ if .Paginator.HasNext }}
+						<a href="{{ $paginator.Next.URL }}">
+							<i class="inverted big link chevron circle right icon" title="{{ i18n `nextPage` }}"></i>
+						</a>
+					{{ else if .Paginator.HasPrev }}
+						<i class="disabled inverted big chevron circle right icon" title="{{ i18n `nextPage` }}"></i>
+					{{ end }}
+				</div>
 			</div>
 		</div>
 	</div>
