@@ -12,6 +12,18 @@
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 {{ end }}
 
+{{ with $.Site.Params.GoogleAnalyticsMeasurementId }}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.GoogleAnalyticsMeasurementId }}"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', '{{ $.Site.Params.GoogleAnalyticsMeasurementId }}');
+	</script>
+{{ end }}
+
 {{/*Google Adsense*/}}
 {{ with $.Site.Params.GoogleAdsenseClient }}
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
