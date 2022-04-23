@@ -2,35 +2,4 @@
 {{ partial "js.html" . }}
 
 {{/*Google Analytics*/}}
-{{ with $.Site.GoogleAnalytics }}
-	<!-- Google Analytics -->
-	<script>
-		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-		ga('create', '{{ if $.Site.GoogleAnalytics }}{{ $.Site.GoogleAnalytics }}{{ end }}', 'auto');
-		ga('send', 'pageview');
-	</script>
-	<script async src='https://www.google-analytics.com/analytics.js'></script>
-{{ end }}
-
-{{ with $.Site.Params.GoogleAnalyticsMeasurementId }}
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.GoogleAnalyticsMeasurementId }}"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', '{{ $.Site.Params.GoogleAnalyticsMeasurementId }}');
-	</script>
-{{ end }}
-
-{{/*Google Adsense*/}}
-{{ with $.Site.Params.GoogleAdsenseClient }}
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({
-		google_ad_client: "{{ . }}",
-		enable_page_level_ads: true
-	});
-	</script>
-{{ end }}
+{{ template "_internal/google_analytics.html" . }}
