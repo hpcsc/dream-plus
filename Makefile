@@ -1,5 +1,5 @@
 SHELL = /bin/bash
-HUGO_VERSION = 0.55.1
+HUGO_VERSION = 0.97.3
 
 clean:
 	rm -rf exampleSite/public

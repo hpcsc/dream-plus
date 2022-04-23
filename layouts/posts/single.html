@@ -23,7 +23,7 @@
 				<div class="sub header">
 					<div><span><i class="calendar outline icon"></i>{{ .Date.Format "Jan 2, 2006" }}</span></div>
 					{{ if $.Site.DisqusShortname }}
-					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="{{ .Permalink }}#disqus_thread" class="disqus-comment-count" data-disqus-identifier="{{ .UniqueID }}"></a></span></div>{{ end }}
+					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="{{ .Permalink }}#disqus_thread" class="disqus-comment-count" data-disqus-identifier="{{ .File.UniqueID }}"></a></span></div>{{ end }}
 					<div><span><i class="clock outline icon"></i>{{ .ReadingTime }} min read</span></div>
 					<div><span><i class="angle double up icon"></i>{{ i18n "lastUpdate" }} {{ dateFormat "Jan 2, 2006" .Lastmod }}</span></div>
 				</div>
@@ -37,7 +37,7 @@
 
 				<article class="post-content twemoji">
 					{{ .Content | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}&nbsp;<a class="anchor" href="#${2}"><i class="small linkify icon"></i></a> ${3}` | safeHTML }}
-				</article>				
+				</article>
 			</section>
 
 			{{/*Tags*/}}
@@ -58,7 +58,7 @@
 
 			{{/*Licensing*/}}
 			{{ $license := lower .Params.license }}
-			{{ with $license }}					
+			{{ with $license }}
 				<section class="ui secondary attached segment copyright">
 					{{ partial "license.html" (dict "license" $license ) }}
 				</section>
