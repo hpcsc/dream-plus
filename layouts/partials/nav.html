@@ -1,6 +1,5 @@
 <nav class="ui top secondary menu bar">
-	{{/*Home button*/}}
-	<div class="item left-most">
+		<div class="item left-most">
 		<a href="/">
 			<i class="inverted big link home icon" title="{{ i18n `home` }}"></i>
 		</a>
@@ -11,13 +10,11 @@
 		{{ $scratch.Set $index $val }}
 	{{ end }}
 
-	{{/*slices to loop over*/}}
-	{{ $sites := slice "GitHub" "Email" "Twitter" "YouTube" "Medium" "LinkedIn" "Stack Overflow" "CodePen" "Reddit" "CodeProject" }}
+		{{ $sites := slice "GitHub" "Email" "Twitter" "YouTube" "Medium" "LinkedIn" "Stack Overflow" "CodePen" "Reddit" "CodeProject" }}
 	{{ $links := slice "https://github.com/" "mailto:" "https://twitter.com/" "https://youtube.com/user/" "https://medium.com/@" "https://www.linkedin.com/in/" "https://www.stackoverflow.com/users/" "https://codepen.io/" "https://reddit.com/user/" "https://www.codeproject.com/Articles/" }}
 	{{ $icons := slice "github" "mail" "twitter" "youtube play" "medium" "linkedin" "stack overflow" "codepen" "reddit" "icon-codeproject" }}
 
-	{{/*Generate HTML for each site*/}}
-	{{ range $index, $val := $sites }}
+		{{ range $index, $val := $sites }}
 		{{ $var := replace $val " " "" | lower }}
 		{{ with ($scratch.Get $var) }}
 			<div class="item">
@@ -28,8 +25,7 @@
 		{{ end }}
 	{{ end }}
 
-	{{/*RSS button*/}}
-	{{ if and (eq .contentType "posts") .rssButton }}
+		{{ if and (eq .contentType "posts") .rssButton }}
 		<div class="item right right-most">
 			<i class="inverted big link sidebar icon"
 			   onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');"

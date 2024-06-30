@@ -1,7 +1,5 @@
-{{/*Semantic UI colors for tags*/}}
 {{ $colors := slice "red" "orange" "yellow" "olive" "green" "teal" "blue" "violet" "purple" "pink" "brown" }}
 
-{{/*Render tags based on 'isPost' parameter*/}}
 {{ if .isPost }}
 	{{ range $i, $name := .context.Params.tags }}
 		<a class="ui label {{ index $colors $i }} " href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" title="{{ $name }}">{{ $name }}</a>

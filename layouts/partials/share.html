@@ -1,4 +1,3 @@
-{{/*Override author details if they exist in post's frontmatter*/}}
 {{ $authorName := .Params.author.name | default $.Site.Params.author.name }}
 {{ $flag := cond (and (ne $.Site.Params.author.avatar nil) (eq $.Site.Params.author.name $authorName)) true false }}
 {{ $authorAvatar := .Params.author.avatar | default (cond $flag $.Site.Params.author.avatar (index (seq 1 4 | shuffle) 0 )) }}
@@ -6,7 +5,6 @@
 {{ $authorDesc := .Params.author.desc | default $.Site.Params.author.motto }}
 {{ $twitter := .Params.author.twitter | default (cond (and (ne $.Site.Social.twitter nil) $flag) $.Site.Social.twitter "") }}
 
-{{/*Author description*/}}
 <div class="author">
 	{{ if $avatarFlag }}
 	<img class="avatar" src="/img/avatar{{ $authorAvatar }}.svg">
@@ -21,7 +19,6 @@
 	<p class="desc">{{ $authorDesc }}</p>
 </div>
 
-{{/*Social buttons*/}}
 <section class="buttons row box">
 	<div class="facebook none flexbox" href="#" onclick="window.open(
 			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),

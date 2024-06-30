@@ -1,32 +1,27 @@
 <div id="sidebar" class="ui labeled icon thin right sidebar inverted vertical menu">
-	{{/*Home button*/}}
-	<a class="item" href="/" >
+		<a class="item" href="/" >
 		<i class="inverted big link home icon" title="{{ i18n `home` }}"></i>
 		{{ i18n `home` }}
 	</a>
 
-	{{/*About Me button*/}}
-	<a class="item" href="/about">
+		<a class="item" href="/about">
 		<i class="inverted big link address card icon" title="{{ i18n `flip` }}"></i>
 		{{ i18n `flip` }}
 	</a>
 
-	{{/*Archive section button*/}}
-	<a class="item" href="/posts">
+		<a class="item" href="/posts">
 		<i class="inverted big link archive icon" title="{{ i18n `archive` }}"></i>
 		{{ i18n `archive` }}
 	</a>
 
-	{{/*Tags section button*/}}
-	{{ if .Site.Params.tags.enabled }}
+		{{ if .Site.Params.tags.enabled }}
 	<a class="item" href="/tags">
 		<i class="inverted big link tags icon" title="{{ i18n `tag` 1 }}"></i>
 		{{ i18n `tag` 1 }}
 	</a>
 	{{ end }}
 
-	{{/*Categories section button*/}}
-	{{ if .Site.Params.categories.enabled }}
+		{{ if .Site.Params.categories.enabled }}
 	<a class="item" href="/categories">
 		<i class="inverted big link cubes icon" title="{{ i18n `category` 1 }}"></i>
 		{{ i18n `category` 1 }}

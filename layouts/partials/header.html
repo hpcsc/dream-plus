@@ -1,12 +1,10 @@
 <div class="ui inverted accordion">
 	<div id="header" class="ui inverted segment column box">
-		{{/*Author*/}}
-		<header id="author" class="ui top attached center aligned inverted segment">
+				<header id="author" class="ui top attached center aligned inverted segment">
 			{{ partial "author.html" . }}
 		</header>
 
-		{{/*Tags and categories*/}}
-		<div id="tag-category" class="{{ if not .IsPage }}active{{ end }} content">
+				<div id="tag-category" class="{{ if not .IsPage }}active{{ end }} content">
 			{{ if and $.Site.Params.tags.enabled $.Site.Taxonomies.tags }}
 				<section class="ui attached center aligned inverted segment dream-tags none flexbox">
 					{{ $limit := $.Site.Params.tags.tagLimit | default 8 }}
@@ -24,8 +22,7 @@
 			{{ end }}
 		</div>
 
-		{{/*Footer*/}}
-		<footer class="ui bottom attached center aligned inverted segment">
+				<footer class="ui bottom attached center aligned inverted segment">
 			{{ partial "footer.html" . }}
 		</footer>
 	</div>

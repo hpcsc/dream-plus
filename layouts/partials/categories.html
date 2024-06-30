@@ -1,11 +1,9 @@
 {{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
-	{{/*Category title*/}}
 	<div class="title">
 		<i class="dropdown icon"></i>
 		<span class="hand dropdown" >{{- $name -}}</span>
 	</div>
 
-	{{/*Category articles*/}}
 	<div class="content">
 		{{ range $taxonomy.Pages }}
 			<a class="item" href="{{ .Permalink }}">
