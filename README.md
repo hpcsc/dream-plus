@@ -7,7 +7,6 @@
 This theme is an upgraded version of the [Dream Theme](https://github.com/g1eny0ung/hugo-theme-dream) by [Yue Yang](https://github.com/g1eny0ung) and contains tons of new features such as:
 
 * "Cards" and "Posts" views for the home page
-* twemoji rendering
 * Table of contents for posts
 * Hugo image processing for faster loading
 * Random image background

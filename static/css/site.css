@@ -282,13 +282,6 @@ ul > li {
   overflow-y: hidden;
 }
 
-.about .twemoji {
-  font-size: 1.1rem;
-}
-
-.four-o-four .twemoji {
-  text-align: center;
-}
 /*Top nav bar*/
 .top .left-most {
   margin-left: calc(100vw/30) !important;

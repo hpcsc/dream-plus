@@ -20,10 +20,10 @@
 <article class="blog-card none flexbox">
 	<img class="image" src="{{ $cover }}"></img>
 
-	<div class="card title-content twemoji">
+	<div class="card title-content">
 		<h3><a class="title" href="{{ .Params.link }}">{{ .Title }}</a></h3>
 
-		<div class="intro twemoji">
+		<div class="intro">
 			{{ if .Params.description }}
 				{{ .Params.description | emojify | markdownify }}
 			{{ else }}
