@@ -23,9 +23,9 @@
 {{ end }}
 
 {{ define "bodyEnd" }}
-		{{ with $.Site.DisqusShortname }}
+		{{ with $.Site.Params.disqusShortname }}
 		{{ if gt (where $.Site.RegularPages "Section" "posts" | len) 0  }}
-			<script id="dsq-count-scr" src="//{{ $.Site.DisqusShortname }}.disqus.com/count.js" async></script>
+			<script id="dsq-count-scr" src="//{{ $.Site.Params.disqusShortname }}.disqus.com/count.js" async></script>
 		{{ end }}
 	{{ end }}
 {{ end }}

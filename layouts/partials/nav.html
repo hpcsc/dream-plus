@@ -6,7 +6,7 @@
 	</div>
 
 	{{ $scratch := newScratch }}
-	{{ range $index, $val := $.context.Site.Social }}
+	{{ range $index, $val := $.context.Site.Params.social }}
 		{{ $scratch.Set $index $val }}
 	{{ end }}
 
@@ -18,7 +18,7 @@
 		{{ $var := replace $val " " "" | lower }}
 		{{ with ($scratch.Get $var) }}
 			<div class="item">
-				<a href="{{ index $links $index }}{{ $scratch.Get $var }}" {{ if ne $var "mail" }}target="	_blank"{{ end }}>
+				<a href="{{ index $links $index }}{{ $scratch.Get $var }}"{{ if ne $var "mail" }} target="_blank" rel="noopener noreferrer"{{ end }}>
 					<i id="ico" class="inverted big link {{ index $icons $index }} icon" title="{{ $val }}"></i>
 				</a>
 			</div>

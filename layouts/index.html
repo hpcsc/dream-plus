@@ -42,9 +42,9 @@
 {{ end }}
 
 {{ define "bodyEnd" }}
-		{{ with $.Site.DisqusShortname }}
+		{{ with $.Site.Params.disqusShortname }}
 		{{ if eq ($.Scratch.Get "contentType") "posts" }}
-			<script id="dsq-count-scr" src="//{{ $.Site.DisqusShortname }}.disqus.com/count.js" async></script>
+			<script id="dsq-count-scr" src="//{{ $.Site.Params.disqusShortname }}.disqus.com/count.js" async></script>
 		{{ end }}
 	{{ end }}
 {{ end }}

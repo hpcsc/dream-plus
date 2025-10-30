@@ -18,7 +18,7 @@
 
 				<div class="sub header">
 					<div><span><i class="calendar outline icon"></i>{{ .Date.Format "Jan 2, 2006" }}</span></div>
-					{{ if $.Site.DisqusShortname }}
+					{{ if $.Site.Params.disqusShortname }}
 					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="{{ .Permalink }}#disqus_thread" class="disqus-comment-count" data-disqus-identifier="{{ .File.UniqueID }}"></a></span></div>{{ end }}
 					<div><span><i class="clock outline icon"></i>{{ .ReadingTime }} min read</span></div>
 					<div><span><i class="angle double up icon"></i>{{ i18n "lastUpdate" }} {{ dateFormat "Jan 2, 2006" .Lastmod }}</span></div>
@@ -45,7 +45,7 @@
 			</section>
 
 			{{ if $.Site.Params.features.shareCard }}
-				<section class="ui secondary {{ if not $.Site.DisqusShortname }}bottom{{ end }} attached segment share row box">
+				<section class="ui secondary {{ if not $.Site.Params.disqusShortname }}bottom{{ end }} attached segment share row box">
 					{{ partial "share.html" . }}
 				</section>
 			{{ end }}
@@ -57,7 +57,7 @@
 				</section>
 			{{ end }}
 
-			{{ if $.Site.DisqusShortname }}
+			{{ if $.Site.Params.disqusShortname }}
 				<div class="ui secondary bottom attached stacked segment disqus">
 					{{ partial "disqus.html" . }}
 				</div>
@@ -67,7 +67,7 @@
 {{ end }}
 
 {{ define "bodyEnd" }}
-	{{ with $.Site.DisqusShortname }}
-		<script id="dsq-count-scr" src="//{{ $.Site.DisqusShortname }}.disqus.com/count.js" async></script>
+	{{ with $.Site.Params.disqusShortname }}
+		<script id="dsq-count-scr" src="//{{ $.Site.Params.disqusShortname }}.disqus.com/count.js" async></script>
 	{{ end }}
 {{ end }}
